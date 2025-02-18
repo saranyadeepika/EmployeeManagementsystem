@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **Setup Guide for open_webui_pipelines and React Integration**  
 
-## Getting Started
-
-First, run the development server:
-
+### **Clone the Repository**  
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/dealwallet1/open_webui_pipelines.git
+cd open_webui_pipelines
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Install Required Packages**  
+```bash
+pip install -r requirements.txt
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### **Run the Required Commands**  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Start the moderator bot:  
+   ```bash
+   python -m owc.discord_comp.bot.moderator_bot.py
+   ```  
+2. Run the setup:  
+   ```bash
+   python -m owc.discord_comp.setup
+   ```  
+3. Start the Open WebUI server:  
+   ```bash
+   open-webui serve
+   ```
 
-## Learn More
+### **Set Up Environment Variables in Your React Project**  
+Navigate to your React project folder and open (or create) a `.env` file. Add the following variables:  
 
-To learn more about Next.js, take a look at the following resources:
+```env
+OPENAI_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiMzI3MDFkLTJhYjItNDIxNi1hOTM4LWU1MDc3YjEzN2ExZSJ9.KQY5qPKuenLhHElBJA2VFq8-LuKGajEExkFCL3ukD9Y
+OPENAI_BASE_URL="http://localhost:8080/api"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Run Your React Project**  
+Make sure you're inside your React project directory, then run:  
+```bash
+npm start
+```
+or  
+```bash
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Final Steps**  
+- Ensure Open WebUI is running and accessible at `http://localhost:8080`.  
+- Your React application should now interact with Open WebUI using the provided API key.  
